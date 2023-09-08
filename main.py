@@ -12,12 +12,12 @@ with st.sidebar:
 
     width = st.slider('width', 240, 1024,1024)
     height = st.slider('height',240, 1024,1024)
-    prompt = st.text_input("Input image prompt：")
+    prompt = st.text_area("Input image prompt：",max_chars=200)
     button = st.button('create')
     if button:
         if prompt:
-                st.spinner("Wait a moment...")
-                pic_address = text2image(prompt=prompt,heigh=height,width=width)
+                with st.spinner("Wait a moment..."):
+                    pic_address = text2image(prompt=prompt,heigh=height,width=width)
         else:
             st.info("please input prompt")
 
